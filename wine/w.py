@@ -5,11 +5,11 @@ from pycaret.classification import load_model, predict_model
 # Load model and data
 @st.cache_resource
 def load_wine_model():
-    return load_model('wine')
+    return load_model('wine/wine.pkl')
 
 @st.cache_data
 def load_dataset():
-    return pd.read_csv('winequality-red.csv')
+    return pd.read_csv('wine/winequality-red.csv')
 
 model = load_wine_model()
 data = load_dataset()
@@ -72,7 +72,7 @@ def main():
         mime='text/csv'
     )
 
-    with open('wine.pkl', 'rb') as f:
+    with open('wine/wine.pkl', 'rb') as f:
         model_bytes = f.read()
 
     st.sidebar.download_button(
