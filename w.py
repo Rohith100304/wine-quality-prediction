@@ -1,15 +1,7 @@
 import streamlit as st
 import pandas as pd
 from pycaret.classification import load_model, predict_model
-import gzip
-import shutil
-import os
 
-# Extract wine_compressed.pkl.gz to wine.pkl (only if not already extracted)
-if not os.path.exists("wine.pkl"):
-    with gzip.open("wine_compressed.pkl.gz", "rb") as f_in:
-        with open("wine.pkl", "wb") as f_out:
-            shutil.copyfileobj(f_in, f_out)
 
 # Load model and data
 @st.cache_resource
