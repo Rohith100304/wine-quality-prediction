@@ -5,7 +5,7 @@ from pycaret.classification import load_model, predict_model
 # Load model and data
 @st.cache_resource
 def load_wine_model():
-    return load_model('wine/wine.pkl')
+    return load_model('wine/wine')
 
 @st.cache_data
 def load_dataset():
